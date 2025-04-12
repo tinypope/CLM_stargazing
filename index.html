@@ -83,3 +83,88 @@
 </html>
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map & Firebase</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="style.css" />
+
+
+    <style>
+        /* Full-page layout */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Map container */
+        #map {
+            height: 100%; /* Map will take up all available space */
+        }
+
+        /* Form container */
+        #form-container {
+            position: absolute;
+            top: 20px;  /* Space from the top */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Input box and button styling */
+        #address {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3fb300;
+        }
+    </style>
+
+    <!-- Firebase CDN (ESM version) -->
+
+</head>
+<body>
+
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <!-- Form container -->
+    <div id="form-container">
+        <form id="addressForm">
+            <input type="text" id="address" placeholder="Enter an address" />
+            <button type="submit">Add Star!</button>
+        </form>
+    </div>
+    <div id="suggestions-container"></div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
+
+
