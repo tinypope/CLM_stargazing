@@ -27,8 +27,8 @@ const map = new mapboxgl.Map({
 
 // Define the bounds for the US (continental)
 const bounds = [
-  [-135.0, 22], // Southwest coordinates [longitude, latitude]
-  [-55.0, 53] // Northeast coordinates [longitude, latitude]
+  [-130.0, 22], // Southwest coordinates [longitude, latitude]
+  [-60.0, 53] // Northeast coordinates [longitude, latitude]
 ];
 
 // Set the maximum bounds of the map to the US
