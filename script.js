@@ -58,6 +58,8 @@ const createStarMarker = (longitude, latitude) => {
 const addressInput = document.getElementById('address');
 const suggestionsContainer = document.getElementById('suggestions-container');
 
+console.log('Suggestions container:', suggestionsContainer);
+
 addressInput.addEventListener('input', () => {
   const query = addressInput.value.trim();
   if (query.length === 0) {
