@@ -13,7 +13,7 @@ body, html {
   margin-bottom: 10px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #dc1b98;
+  border: 1px solid #ccc;
 }
 
 /* Map container */
@@ -30,7 +30,8 @@ body, html {
     line-height: 1;
     cursor: pointer;
     user-select: none;
-    color: rgb(55, 49, 84);
+    /* color: rgb(55, 49, 84); */
+    color: rgb(157, 255, 28);
     text-shadow: 0 0 4px rgb(188, 148, 255);
   }
 
