@@ -1,7 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, addDoc, getDocs, GeoPoint } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
-// Your Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyD5UxLdEGzpzi4agytbzmICJln3jaPhsXc",
   authDomain: "clm-pins-8bdf1.firebaseapp.com",
@@ -25,7 +24,7 @@ const map = new mapboxgl.Map({
   zoom: 5,
 });
 
-// Define the bounds for the US (continental)
+
 const bounds = [
   [-130.0, 22], 
   [-60.0, 53] 
@@ -33,14 +32,14 @@ const bounds = [
 
 map.setMaxBounds(bounds);
 
-// Zoom restrictions
+
 map.setMinZoom(3); 
 map.setMaxZoom(20); 
 
 map.addControl(new mapboxgl.GeolocateControl());
 map.addControl(new mapboxgl.NavigationControl());
 
-// Create a star marker function
+// Star marker function
 const createStarMarker = (longitude, latitude) => {
   const star = document.createElement('div');
   star.className = 'star-marker';
@@ -53,7 +52,7 @@ const createStarMarker = (longitude, latitude) => {
     .addTo(map);
 };
 
-// Autocomplete for address input
+// Autocomplete address input
 const addressInput = document.getElementById('address');
 const suggestionsContainer = document.getElementById('suggestions-container');
 
@@ -145,7 +144,6 @@ const fetchLocations = async () => {
       const latitude = coordinates.latitude;
       const longitude = coordinates.longitude;
       
-      // Create a star for each stored location
       createStarMarker(longitude, latitude);
     });
   } catch (error) {
