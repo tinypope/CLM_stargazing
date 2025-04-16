@@ -89,7 +89,12 @@ addressInput.addEventListener('input', () => {
 // Handle form submission
 document.getElementById('addressForm').addEventListener('submit', (e) => {
   e.preventDefault();
-  const address = addressInput.value;
+  const address = addressInput.value.trim();
+
+  if (!address) {
+    alert('Please enter an address');
+    return;
+  }
 
   fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=${mapboxgl.accessToken}`)
     .then(response => response.json())
@@ -97,15 +102,7 @@ document.getElementById('addressForm').addEventListener('submit', (e) => {
       if (data.features.length > 0) {
         const [longitude, latitude] = data.features[0].geometry.coordinates;
 
-        const star = document.createElement('div');
-        star.className = 'star-marker';
-        star.innerHTML = '★';
-        star.style.fontSize = '50px';
-        star.style.cursor = 'pointer';
-
-        new mapboxgl.Marker({ element: star })
-          .setLngLat([longitude, latitude])
-          .addTo(map);
+        createStarMarker(longitude, latitude);
 
         addDoc(collection(db, "locations"), {
           address: address,
@@ -126,6 +123,7 @@ document.getElementById('addressForm').addEventListener('submit', (e) => {
       alert('Error fetching location');
     });
 });
+
 
 // Hide suggestions when clicking outside
 document.addEventListener('click', (e) => {
