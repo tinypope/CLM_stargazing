@@ -21,22 +21,21 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGlueXBvcGUiLCJhIjoiY205ZWpmcjRzMWVtYzJqcHZvZ
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v11',
-  center: [-98.5795, 39.8283], // Center on the US
+  center: [-98.5795, 39.8283], 
   zoom: 5,
 });
 
 // Define the bounds for the US (continental)
 const bounds = [
-  [-130.0, 22], // Southwest coordinates [longitude, latitude]
-  [-60.0, 53] // Northeast coordinates [longitude, latitude]
+  [-130.0, 22], 
+  [-60.0, 53] 
 ];
 
-// Set the maximum bounds of the map to the US
 map.setMaxBounds(bounds);
 
-// Optional zoom restrictions
-map.setMinZoom(3);  // Minimum zoom level (wide view of the US)
-map.setMaxZoom(20); // Maximum zoom level (detailed view within the US)
+// Zoom restrictions
+map.setMinZoom(3); 
+map.setMaxZoom(20); 
 
 map.addControl(new mapboxgl.GeolocateControl());
 map.addControl(new mapboxgl.NavigationControl());
@@ -132,7 +131,7 @@ document.getElementById('addressForm').addEventListener('submit', (e) => {
 // Hide suggestions when clicking outside
 document.addEventListener('click', (e) => {
   if (!addressInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
-    suggestionsContainer.innerHTML = ''; // Hide the suggestions
+    suggestionsContainer.innerHTML = '';
   }
 });
 
